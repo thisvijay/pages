@@ -5,10 +5,15 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var queryParams = new URLSearchParams(window.location.search);
-		var entityType = queryParams.get('entity');
-		var entityId = queryParams.get('id');
-		var entityParentId = queryParams.get('parentId');
+		var queryParamsMap = {};
+		var params = window.location.href.split('?')[1].split('&');
+		params.forEach(function(param){
+			var keyVal = param.split('=');
+			queryParamsMap[keyVal[0]] = keyVal[1];
+		});
+		var entityType = queryParamsMap['entity'];
+		var entityId = queryParamsMap['id'];
+		var entityParentId = queryParamsMap['parentId'];
 		var link = "https://www.youtube.com";
 		if(entityType == 'user_profile')
 		{
