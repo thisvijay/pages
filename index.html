@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello vijay</title>
+	<title>Redirecting to Youtube...</title>
 </head>
 <body>
-	<h1>hi</h1>
+	<script type="text/javascript">
+		var queryParams = new URLSearchParams(window.location.href);
+		var entityType = queryParams.get('entity');
+		var entityId = queryParams.get('id');
+		var entityParentId = queryParams.get('parentId');
+		var link = "https://www.youtube.com";
+		if(entityType == 'user_profile')
+		{
+		        link = link + "/channel/" + entityId;
+		}
+		if(entityType == 'ticket')
+		{
+		        link = link + "/watch?v=" + entityId;
+		}
+		if(entityType == 'thread')
+		{
+		        link = link + "/watch?v=" + entityParentId;
+		        if(entityId != null)
+		        {
+		                link = link + "&lc=" + entityId;
+		        }
+		}
+		window.location.href="link";
+	</script>
 </body>
 </html>
