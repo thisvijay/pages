@@ -5,7 +5,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var queryParams = new URLSearchParams(window.location.href);
+		var queryParams = new URLSearchParams(window.location.search);
 		var entityType = queryParams.get('entity');
 		var entityId = queryParams.get('id');
 		var entityParentId = queryParams.get('parentId');
